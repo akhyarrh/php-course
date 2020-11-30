@@ -24,9 +24,20 @@
 
       foreach($products as $key => $value){
         if($value <= $credit ){
-          echo "<p>".$key."</p>"; 
+          echo "<p>".$key." $".$value."</p>";
         }
       }
+      $amount=800;
+      $taxRate=0.0825;
+      $addedTax= $amount*$taxRate;  //amount = 800, tax = .0825
+      echo "<p>Added tax: $".$addedTax."</p>";
+
+      function tax_calc($amount,$tax){
+        $calculate_tax = $amount*$tax;
+        $amount = round($amount+$calculate_tax,2);
+        return $amount;
+      }
+      echo tax_calc(750,0.223);
     ?>
   </body>
 </html>
